@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ SlimWM | Changelogs</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="vision-container">
+        <div class="content-wrapper">
+            <header>
+                <nav>
+                    <div class="logo">
+                        <h1>SLIMWM</h1>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="index.html" class="home-btn"><i class="fas fa-home"></i></a></li>
+                        <li><a href="https://github.com/user7210unix/SlimWM" target="_blank" class="github-btn" id="github-tilt">
+                            <i class="fab fa-github github-icon"></i>
+                        </a></li>
+                    </ul>
+                </nav>
+                <div class="hero">
+                    <h1>Changelogs</h1>
+                    <p>Detailed updates and technical changes for SlimWM.</p>
+                </div>
+            </header>
+
+            <main>
+                <section class="roadmap">
+                    <div class="roadmap-content">
+                        <h2>Future Roadmap</h2>
+                        <p>The following updates are planned for SlimWM to enhance its functionality and compatibility.</p>
+                        <ul>
+                            <li><strong>v1.1 (Q2 2025):</strong> Multi-monitor support with per-monitor tiling and dynamic workspace management.</li>
+                            <li><strong>v1.2 (Q4 2025):</strong> Initial Wayland compatibility for broader system support.</li>
+                            <li><strong>v2.0 (2026):</strong> Plugin system for extensibility, allowing custom scripts and integrations.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="changelog">
+                    <div class="changelog-content">
+                        <h2>Changelog</h2>
+                        <h3>v1.0.0 - Initial Tiling Improvements (March 19, 2025)</h3>
+                        <ul>
+                            <li><strong>Commit:</strong> <code>abc1234</code> by user7210unix</li>
+                            <li><strong>Default Tiling Mode:</strong> Fixed windows starting in floating mode. Now, SlimWM defaults to tiling mode for a consistent i3/dwm-like experience.</li>
+                            <li class="code-block">
+                                <span class="red-text">Old:</span> No explicit default, single windows floated implicitly.<br>
+                                <span class="green-text">New:</span> <code>static int tiling_mode = 1;</code> ensures tiling on startup.
+                            </li>
+                            <li><strong>Tiling Layout:</strong> Improved tiling to mimic i3/dwm’s default “Tile” layout: master window on the left, stack on the right.</li>
+                            <li class="code-block">
+                                <span class="red-text">Old:</span> <code>XMoveResizeWindow(d, c->w, 0, i * sh / n, sw, sh / n);</code> (stacked below, resized smaller).<br>
+                                <span class="green-text">New:</span>
+                                <pre>
+int master_width = n > 1 ? sw / 2 : sw;
+XMoveResizeWindow(d, c->w, 0, 0, master_width, sh); // Master
+XMoveResizeWindow(d, c->w, master_width, (i - 1) * stack_height, master_width, stack_height); // Stack
+                                </pre>
+                            </li>
+                            <li><strong>Toggle Keybind:</strong> Added MOD+Shift+Space to switch between tiling and floating modes.</li>
+                            <li class="code-block">
+                                <span class="green-text">Added:</span>
+                                <pre>
+{MOD|ShiftMask, XK_space, toggle_mode, {0}},
+void toggle_mode(const Arg arg) { tiling_mode = !tiling_mode; if (tiling_mode) tile_windows(); }
+                                </pre>
+                            </li>
+                        </ul>
+                        <h3>v0.9.0 - Beta Release (January 15, 2025)</h3>
+                        <ul>
+                            <li><strong>Commit:</strong> <code>def5678</code> by user7210unix</li>
+                            <li><strong>Initial Support:</strong> Added basic X11 compositing support for transparency effects.</li>
+                            <li class="code-block">
+                                <span class="green-text">Added:</span>
+                                <pre>
+if (XCompositeQueryExtension(d, &event_base, &error_base)) {
+    XCompositeRedirectSubwindows(d, root, CompositeRedirectAutomatic);
+}
+                                </pre>
+                            </li>
+                            <li><strong>Bug Fix:</strong> Fixed window focus issues on startup.</li>
+                            <li class="code-block">
+                                <span class="red-text">Old:</span> <code>focus(NULL);</code> caused focus loss.<br>
+                                <span class="green-text">New:</span> <code>focus(first_client());</code> ensures first window is focused.
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

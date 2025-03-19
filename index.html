@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ SlimWM | Home</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="vision-container">
+        <div class="content-wrapper">
+            <header>
+                <nav>
+                    <div class="logo">
+                        <h1>SLIMWM</h1>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="changelogs.html" class="changelogs-btn"><i class="fas fa-history"></i></a></li>
+                        <li><a href="https://github.com/user7210unix/SlimWM" target="_blank" class="github-btn" id="github-tilt">
+                            <i class="fab fa-github github-icon"></i>
+                        </a></li>
+                    </ul>
+                </nav>
+                <div class="hero">
+                    <h1>SLIMWM</h1>
+                    <p>A lightweight, dynamic window manager for X11.</p>
+                </div>
+            </header>
+
+            <main>
+                <section class="split-section">
+                    <div class="text-content">
+                        <h2>About SlimWM</h2>
+                        <p>SlimWM is a dynamic window manager for the X11 windowing system. It draws inspiration from the efficiency of DWM and the flexibility of i3.</p>
+                        <p>It automatically handles windows in tiled or floating layouts. This allows you to focus on your work without distractions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="image-container" id="tilt1">
+                            <img src="assets/images/slimwm.png" alt="SlimWM Screenshot">
+                        </div>
+                        <h2>Core Features</h2>
+                        <ul>
+                            <li>Built from Scratch</li>
+                            <li>Written in C</li>
+                            <li>Kitty Terminal Default</li>
+                            <li>Compositing Support</li>
+                            <li>Open Source</li>
+                            <li>Dmenu & Wallpaper Switcher</li>
+                            <li>Supports Volume & Brightness Controls</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="split-section">
+                    <div class="feature-card">
+                        <div class="image-container" id="tilt2">
+                            <img src="assets/images/slimwm.png" alt="SlimWM Screenshot">
+                        </div>
+                        <h2>Key Bindings</h2>
+                        <ul>
+                            <li>ALT + Q ➜ Kill Window</li>
+                            <li>ALT + RETURN ➜ Kitty</li>
+                            <li>ALT + D ➜ Dmenu</li>
+                            <li>ALT + F ➜ Fullscreen</li>
+                            <li>ALT + SHIFT + SPACE ➜ Toggle Mode</li>
+                        </ul>
+                    </div>
+                    <div class="text-content">
+                        <p>SlimWM is highly configurable. You can change key bindings, appearance, and behavior to suit your needs.</p>
+                        <p>With a focus on minimalism, it uses fewer than 2,000 lines of C code. This ensures speed and low resource usage.</p>
+                    </div>
+                </section>
+
+                <section class="install-section">
+                    <h2>Install SlimWM</h2>
+                    <div class="install-box">
+                        <div class="code-snippet">
+                            <code>curl -fsSL https://raw.githubusercontent.com/user7210unix/SlimWM/main/install.sh | bash</code>
+                        </div>
+                        <button class="copy-btn" id="copy-tilt">Copy to Clipboard</button>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
