@@ -25,7 +25,6 @@ body {
     font-size: 14px; /* Reduced font size */
 }
 
-/* VisionOS-like container */
 .vision-container {
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(15px);
@@ -40,7 +39,6 @@ body {
     position: relative;
 }
 
-/* Content wrapper for scrolling */
 .content-wrapper {
     height: 100%;
     overflow-y: auto;
